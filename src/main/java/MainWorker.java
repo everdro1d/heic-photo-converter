@@ -37,8 +37,6 @@ public class MainWorker {
         checkOSCompatability();
         getJarPath();
 
-        Icon frameIcon = getApplicationIcon("main/resources/convertIcon.png", 32, 32);
-
         heifConvertPath = jarPath + fileDiv + "heif-convert.exe";
         copyBinaryTempFile();
 
@@ -51,12 +49,6 @@ public class MainWorker {
         EventQueue.invokeLater(() -> {
             try {
                 new MainWindow();
-
-                if (frameIcon != null) {
-                    frame.setIconImage(((ImageIcon) frameIcon).getImage());
-                } else {
-                    System.err.println("Failed to set icon.");
-                }
             } catch (Exception e) {
                 e.printStackTrace(System.err);
                 System.err.println("Failed to start main window.");
